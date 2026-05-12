@@ -5,47 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inspired PHL Corporation</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 120px;
+    }
+
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 2px;
+      background: #06b6d4;
+      transition: width 0.3s ease;
+      border-radius: 999px;
+    }
+
+    .nav-link:hover {
+      color: #0891b2;
+      transform: translateY(-2px);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link:active {
+      transform: scale(0.95);
+    }
+
+    .slide-up {
+      opacity: 0;
+      transform: translateY(60px);
+      animation: slideUp 1s ease forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
-<body class="bg-white text-slate-800 font-sans">
+<body id="top" class="bg-white text-slate-800 font-sans">
 
-  <header class="sticky top-0 z-50 bg-white border-b border-slate-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-700 flex items-center justify-center text-white font-black text-xl shadow-lg">
-          I
-        </div>
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+        <img
+          src="https://i.imgur.com/T2l9W8y.png"
+          alt="Inspired Logo"
+          class="h-10 sm:h-12 w-auto object-contain shrink-0"
+        />
 
-        <div>
-          <h1 class="text-xl font-black text-slate-900 leading-none">Inspired PHL</h1>
-          <p class="text-xs text-slate-500">Respiratory Care Solutions</p>
+        <div class="min-w-0">
+          <h1 class="text-base sm:text-xl font-black text-slate-900 leading-none truncate">Inspired PHL</h1>
+          <p class="text-[10px] sm:text-xs text-slate-500 truncate">Respiratory Care Solutions</p>
         </div>
       </div>
 
+      <button id="menuBtn" class="lg:hidden flex flex-col gap-1.5 p-2">
+        <span class="w-6 h-0.5 bg-slate-800 rounded-full"></span>
+        <span class="w-6 h-0.5 bg-slate-800 rounded-full"></span>
+        <span class="w-6 h-0.5 bg-slate-800 rounded-full"></span>
+      </button>
+
       <nav class="hidden lg:flex items-center gap-8 font-semibold text-slate-600">
-        <a href="#about" class="hover:text-cyan-600 transition">About</a>
-        <a href="#products" class="hover:text-cyan-600 transition">Products</a>
-        <a href="#brands" class="hover:text-cyan-600 transition">Brands</a>
-        <a href="#services" class="hover:text-cyan-600 transition">Services</a>
-        <a href="#industries" class="hover:text-cyan-600 transition">Industries</a>
-        <a href="#contact" class="hover:text-cyan-600 transition">Contact</a>
+        <a href="#top" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#brands" class="nav-link">Brands</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#industries" class="nav-link">Industries</a>
+        <a href="#contact" class="nav-link">Contact</a>
       </nav>
+    </div>
+
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white px-6 py-5">
+      <div class="flex flex-col gap-5 font-semibold text-slate-700">
+        <a href="#top" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#brands" class="nav-link">Brands</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#industries" class="nav-link">Industries</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
     </div>
   </header>
 
   <section class="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white">
-    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-36 grid lg:grid-cols-2 gap-12 items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16 sm:py-24 lg:py-36 grid lg:grid-cols-2 gap-12 items-center">
       <div>
-        <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
+        <div class="slide-up inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-6 backdrop-blur-sm">
           <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
           <span class="text-sm tracking-wide">INSPIRED PHL CORPORATION</span>
         </div>
 
-        <h1 class="text-5xl lg:text-7xl font-black leading-tight mb-6">
+        <h1 class="slide-up delay-1 text-4xl sm:text-5xl lg:text-7xl font-black leading-tight mb-6">
           Breathe Better,
           <span class="block text-cyan-300">Live Inspired.</span>
         </h1>
 
-        <p class="text-lg lg:text-xl text-slate-200 max-w-2xl leading-relaxed mb-8">
+        <p class="slide-up delay-2 text-lg lg:text-xl text-slate-200 max-w-2xl leading-relaxed mb-8">
           Delivering innovative respiratory care equipment, patient monitoring systems,
           and healthcare solutions for hospitals, clinics, and home care providers.
         </p>
@@ -54,13 +134,48 @@
       <div>
         <img
           src="https://images.unsplash.com/photo-1581594549595-35f6edc7b762?q=80&w=1400&auto=format&fit=crop"
-          class="rounded-3xl shadow-2xl object-cover w-full h-[520px]"
+          class="slide-up delay-3 rounded-3xl shadow-2xl object-cover w-full h-[320px] sm:h-[420px] lg:h-[520px]"
         />
       </div>
     </div>
   </section>
 
-  <section id="products" class="bg-slate-50 py-24">
+  <section id="about" class="slide-up bg-white py-24 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="text-cyan-600 font-semibold uppercase tracking-[0.25em] mb-4">
+          About the Company
+        </p>
+
+        <h2 class="text-4xl lg:text-5xl font-black mb-8 leading-tight">
+          Innovative Respiratory Care Solutions
+        </h2>
+
+        <div class="space-y-6 text-lg text-slate-600 leading-relaxed">
+          <p>
+            INSPIRED PHL CORPORATION is a leading provider of innovative respiratory care solutions. Established in 2024, our mission is to enhance respiratory health and quality of life through cutting-edge equipment, reliable supplies, and outstanding customer service.
+          </p>
+
+          <p>
+            With a focus on both clinical and home-based respiratory care, we cater to the needs of hospitals, clinics, and individuals managing respiratory conditions.
+          </p>
+
+          <p>
+            Our goal is to empower healthcare providers and patients with tools that ensure better care and improved outcomes.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <img
+          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=1400&auto=format&fit=crop"
+          class="rounded-[2rem] shadow-2xl object-cover w-full h-[320px] sm:h-[420px] lg:h-[520px]"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section id="products" class="slide-up bg-slate-50 py-24">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="text-center mb-16">
         <p class="text-cyan-600 font-semibold uppercase tracking-[0.25em] mb-4">
@@ -72,41 +187,45 @@
         </h2>
       </div>
 
-      <div id="brands" class="flex flex-wrap justify-center gap-8 mt-20">
+      <div id="brands" class="flex flex-wrap justify-center gap-8 mt-8 scroll-mt-32">
 
-        <a href="https://en.northernmeditec.com/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
+        <a href="https://en.northernmeditec.com/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-full sm:w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
           <img src="https://arh.ae/storage/78/b74341fd57a23ffdb5389e0f61996bb1.png" class="max-h-24 object-contain" />
         </a>
 
-        <a href="https://em-med.com/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
+        <a href="https://em-med.com/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-full sm:w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
           <img src="https://em-med.com/wp-content/uploads/2024/06/logo_emmed_210px_en.svg" class="max-h-24 object-contain" />
         </a>
 
-        <a href="https://somnomedics.de/en/solutions/sleep_diagnostics/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
+        <a href="https://somnomedics.de/en/solutions/sleep_diagnostics/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-full sm:w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
           <img src="https://homecare-medical.com/wp-content/uploads/2017/01/somno-logo.jpg" class="max-h-24 object-contain" />
         </a>
 
-        <a href="https://esumedics.com/en/welcome/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
+        <a href="https://esumedics.com/en/welcome/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-full sm:w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
           <img src="https://esumedics.com/wp-content/uploads/sites/2/2023/11/Logo_esumedics_2023-05_RGB_BlueR-500x124.png" class="max-h-24 object-contain" />
         </a>
 
-        <a href="https://www.lily-medical.com/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
+        <a href="https://www.lily-medical.com/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-full sm:w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
           <img src="https://www.lily-medical.com/images/theme-b67/logo.svg" class="max-h-24 object-contain" />
         </a>
 
-        <a href="https://www.yuwell.com/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
+        <a href="https://www.yuwell.com/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-full sm:w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
           <img src="https://www.healthcaredepot.ph/cdn/shop/collections/Yuwell_and_HCD.jpg?v=1743666620" class="max-h-40 object-contain" />
         </a>
 
-        <a href="https://www.facebook.com/profile.php?id=61582408052473" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
-          <img src="https://scontent.fmnl9-1.fna.fbcdn.net/v/t39.30808-1/567476081_25033815519575919_8072632497561626104_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=110&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeGMZuKvuxVR0jVIM_mQ5S_AJIih86FcggskiKHzoVyCC69mucSF5yDQp-S-dof1z0KI0smg26mXuetcJgxANaBv&_nc_ohc=RuY1AvaWWMAQ7kNvwETPhCC&_nc_oc=Adrfg_2nSjdp-KiVBA7NQzyhHtHDsiPsUwdz4DNbbG1P3zDTGTs8HijWLz99B9aIgaY&_nc_zt=24&_nc_ht=scontent.fmnl9-1.fna&_nc_gid=H5OWR7ZSay_rifZEv5CpMA&_nc_ss=7b2a8&oh=00_Af76JhildWvsiBqhDE4f5x8nS93iDfPVyGWy2R21K1YWGA&oe=6A0872E4" class="max-h-24 object-contain" />
+        <a href="https://www.facebook.com/profile.php?id=61582408052473" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-full sm:w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
+          <img src="https://dummyimage.com/400x120/ffffff/111827.png?text=iSleep" class="max-h-24 object-contain" />
+        </a>
+
+        <a href="https://www.yingchi-tms.com/" target="_blank" class="group bg-slate-50 hover:bg-white border border-slate-200 rounded-3xl p-8 flex items-center justify-center min-h-[220px] w-full sm:w-[260px] shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 cursor-pointer">
+          <img src="https://www.yingchi-tms.com/wp-content/uploads/2022/04/222.jpg" class="max-h-24 object-contain" />
         </a>
 
       </div>
     </div>
   </section>
 
-  <section id="services" class="py-24 bg-white">
+  <section id="services" class="slide-up py-24 bg-white">
     <div class="max-w-7xl mx-auto px-6 lg:px-12">
       <div class="text-center mb-16">
         <p class="text-cyan-600 font-semibold uppercase tracking-[0.25em] mb-4">
@@ -146,14 +265,14 @@
     </div>
   </section>
 
-  <section id="industries" class="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white py-24">
+  <section id="industries" class="slide-up bg-gradient-to-r from-slate-900 via-blue-900 to-slate-800 text-white py-24">
     <div class="max-w-7xl mx-auto px-6 lg:px-12 text-center">
       <p class="text-cyan-300 font-semibold uppercase tracking-[0.25em] mb-4">
         Industries We Serve
       </p>
 
       <h2 class="text-4xl lg:text-5xl font-black mb-14">
-        Healthcare Institutions Across The Philippines
+        Healthcare Institutions and Neuroscience Across The Philippines
       </h2>
 
       <div class="grid md:grid-cols-4 gap-8">
@@ -180,7 +299,7 @@
     </div>
   </section>
 
-  <section id="contact" class="bg-white py-24">
+  <section id="contact" class="slide-up bg-white py-24">
     <div class="max-w-5xl mx-auto px-6 lg:px-12 text-center">
       <p class="text-cyan-600 font-semibold uppercase tracking-[0.25em] mb-4">
         Contact Us
@@ -198,25 +317,40 @@
         <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
           <div class="text-4xl mb-4">📍</div>
           <h3 class="text-xl font-bold mb-3">Office</h3>
-          <p class="text-slate-600">Philippines</p>
+          <p class="text-slate-600">Unit 3 Lot 2 Nile Drive Golden River Village Taculing, Bacolod</p>
         </div>
 
         <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
           <div class="text-4xl mb-4">📞</div>
           <h3 class="text-xl font-bold mb-3">Contact</h3>
-          <p class="text-slate-600">Available Upon Request</p>
+          <p class="text-slate-600">+63 915 148 1858</p>
         </div>
 
         <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
           <div class="text-4xl mb-4">✉️</div>
           <h3 class="text-xl font-bold mb-3">Email</h3>
-          <p class="text-slate-600">Inspired PHL Corporation</p>
+          <p class="text-slate-600">inspiredphl.saleslead@gmail.com</p>
         </div>
       </div>
     </div>
   </section>
 
   <footer class="bg-slate-950 text-slate-400 py-10 text-center text-sm">
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  document.querySelectorAll('#mobileMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+</script>
     © 2026 Inspired PHL Corporation. All rights reserved.
   </footer>
 
